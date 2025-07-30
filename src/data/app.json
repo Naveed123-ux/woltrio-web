@@ -8,32 +8,31 @@
   },
   "header": {
     "logo": {
-      "image": "img/LogoDark.svg"
+      "image": "/img/LogoDark.svg"
     },
     "menu": [
       {
         "label": "Home",
         "link": "/"
       },
-
       {
         "label": "Portfolio",
         "link": "/portfolio"
-      },
-
-      {
-        "label": "Contact",
-        "link": "/contact",
-        "children": 0
       },
       {
         "label": "Services",
         "link": "/services",
         "children": 0
       },
+
       {
         "label": "Team",
         "link": "/team",
+        "children": 0
+      },
+      {
+        "label": "Contact",
+        "link": "/contact",
         "children": 0
       }
     ]
