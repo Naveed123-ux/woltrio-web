@@ -1,0 +1,201 @@
+{
+  "subtitle": "Prices",
+  "title": "Choose the optimal price plan",
+  "description": "Explore our flexible pricing options tailored to your needs. Select a plan that fits your budget and goals, with premium features included. Reach out to us for personalized assistance.",
+  "button": {
+    "label": "Contact us",
+    "link": "/contact"
+  },
+  "items": [
+    {
+      "name": "Basic",
+      "subname": "Basic Website",
+      "price": "$399",
+
+      "list": [
+        {
+          "active": 1,
+          "value": "Informative Website"
+        },
+        {
+          "active": 1,
+          "value": "Industry Specific Designer"
+        },
+        {
+          "active": 1,
+          "value": "Custom Designed Homepage (2x concept)"
+        },
+        {
+          "active": 1,
+          "value": "3-5 Custom Designed Inner Pages"
+        },
+        {
+          "active": 1,
+          "value": "3 Premium Stock Photos"
+        },
+        {
+          "active": 1,
+          "value": "3 Unique Custom Banner Design"
+        },
+        {
+          "active": 1,
+          "value": "Social Media Integration"
+        },
+        {
+          "active": 1,
+          "value": "Cross Browser Compatibility"
+        },
+        {
+          "active": 1,
+          "value": "Cross-Browser (Chrome, Firefox, Safari, etc.) Compatibility"
+        },
+        {
+          "active": 1,
+          "value": "Search Engine Submission"
+        },
+        {
+          "active": 1,
+          "value": "Google Friendly Sitemap"
+        },
+        {
+          "active": 1,
+          "value": "Complete W3C Certified HTML"
+        },
+        {
+          "active": 1,
+          "value": "CMS [WordPress]"
+        },
+        {
+          "active": 1,
+          "value": "Unlimited Revisions"
+        },
+        {
+          "active": 1,
+          "value": "After Sales Support"
+        },
+        {
+          "active": 1,
+          "value": "Best Value For Money"
+        },
+        {
+          "active": 1,
+          "value": "Responsive Website"
+        },
+        {
+          "active": 1,
+          "value": "100% Satisfaction Guarantee"
+        },
+        {
+          "active": 1,
+          "value": "100% Unique Design"
+        },
+        {
+          "active": 1,
+          "value": "100% Ownership Rights"
+        }
+      ],
+      "button": {
+        "label": "Choose a plan",
+        "link": "/contact"
+      }
+    },
+    {
+      "name": "Pro",
+      "subname": "Standard Website",
+      "price": "$799",
+      "price_after": "/mo",
+      "price_label": "Per month",
+      "list": [
+        { "value": "Informative Website", "active": 1 },
+        { "value": "Industry Specific Designer", "active": 1 },
+        { "value": "Custom Designed Homepage (2x concepts)", "active": 1 },
+        { "value": "8-10 Custom Designed inner pages", "active": 1 },
+        { "value": "CMS / Admin Panel Support", "active": 1 },
+        { "value": "6 Premium Stock Photos", "active": 1 },
+        { "value": "Search Engine Submission", "active": 1 },
+        { "value": "5 Unique Custom Banner Design", "active": 1 },
+        { "value": "1 JQuery Slider Banner", "active": 1 },
+        { "value": "Google Friendly Sitemap", "active": 1 },
+        {
+          "value": "Cross-Browser (Chrome, Firefox, Safari, etc.) Compatibility.",
+          "active": 1
+        },
+        {
+          "value": "Social Media Integration (Facebook, Twitter, LinkedIn)",
+          "active": 1
+        },
+        { "value": "Facebook + Instagram Page Creations", "active": 1 },
+        { "value": "Complete W3C Certified HTML", "active": 1 },
+        { "value": "Unlimited Revisions", "active": 1 },
+        { "value": "After Sales Support", "active": 1 },
+        { "value": "Best Value For Money", "active": 1 },
+        { "value": "Complete Deployment", "active": 1 },
+        { "value": "30 Days Free (Post-Launch Support)", "active": 1 },
+        { "value": "Dedicated Account Manager", "active": 1 },
+        { "value": "24/7 Customer Support", "active": 1 },
+        { "value": "100% Satisfaction Guarantee", "active": 1 },
+        { "value": "100% Unique Design Guarantee", "active": 1 },
+        { "value": "100% Ownership Rights", "active": 1 }
+      ],
+
+      "button": {
+        "label": "Choose a plan",
+        "link": "/contact"
+      }
+    },
+    {
+      "name": "Premium",
+      "subname": "Enterprise Website",
+      "price": "$1399",
+      "price_after": "/mo",
+      "price_label": "Per month",
+      "list": [
+        { "value": "Informative Website", "active": 1 },
+        { "value": "Industry Specific Designer", "active": 1 },
+        { "value": "Custom Designed Homepage (4x Concepts)", "active": 1 },
+        { "value": "Up To 10-15 Custom Designed Inner Pages", "active": 1 },
+        { "value": "Interactive and Dynamic Website Design", "active": 1 },
+        {
+          "value": "Cross platform (Desktop, iPhone, Android, etc) Responsive Compatibility",
+          "active": 1
+        },
+        {
+          "value": "Online Reservation/Appointment Tool (Optional)",
+          "active": 1
+        },
+        { "value": "Online Payment Integration (Optional)", "active": 1 },
+        { "value": "Custom Dynamic Forms", "active": 1 },
+        { "value": "Search Engine Submission", "active": 1 },
+        { "value": "Lead Capturing Forms (Optional)", "active": 1 },
+        { "value": "Striking Hover Effects", "active": 1 },
+        { "value": "Signup Area (For Newsletters, Offers etc.)", "active": 1 },
+        { "value": "Newsfeed Integration", "active": 1 },
+        {
+          "value": "Social Media Integration (Facebook, Twitter, LinkedIn)",
+          "active": 1
+        },
+        { "value": "Google Friendly Sitemap", "active": 1 },
+        { "value": "10 Premium Stock Photos", "active": 1 },
+        { "value": "8 Unique Custom Banner Design", "active": 1 },
+        { "value": "Interactive jQuery Slider Banner", "active": 1 },
+        { "value": "Complete W3C Certified HTML", "active": 1 },
+        { "value": "Parallax Scrolling", "active": 1 },
+        { "value": "Facebook Page Design", "active": 1 },
+        { "value": "Twitter Page Design", "active": 1 },
+        { "value": "Complete Deployment", "active": 1 },
+        { "value": "60 Days Free (Post-Launch Support)", "active": 1 },
+        { "value": "How-to-use Training Manual for CMS", "active": 1 },
+        { "value": "Dedicated Account Manager", "active": 1 },
+        { "value": "24/7 Customer Support", "active": 1 },
+        { "value": "Unlimited Revisions", "active": 1 },
+        { "value": "100% Satisfaction Guarantee", "active": 1 },
+        { "value": "100% Unique Design Guarantee", "active": 1 },
+        { "value": "100% Ownership Rights", "active": 1 }
+      ],
+      "button": {
+        "label": "Choose a plan",
+        "link": "/contact"
+      }
+    }
+  ]
+}

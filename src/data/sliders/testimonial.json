@@ -1,0 +1,34 @@
+{
+  "subtitle": "Reviews",
+  "title": "They talk about us",
+  "button": {
+    "label": "View all",
+    "link": "#."
+  },
+  "items": [
+    {
+      "name": "Paul Trueman",
+      "image": "img/team/1.png",
+      "role": "CEO, Mil Design Studio",
+      "text": "The team was outstanding from start to finish. They delivered exactly what we needed and were a pleasure to work with throughout the entire process."
+    },
+    {
+      "name": "Sarah Mitchell",
+      "image": "img/team/2.png",
+      "role": "Marketing Director, BrightEdge",
+      "text": "Incredible service,creativity and more. Our project was handled professionally and the final result was clean, modern, and met all expectations."
+    },
+    {
+      "name": "James Carter",
+      "image": "img/team/3.png",
+      "role": "Founder, Carter Innovations",
+      "text": "We were impressed by their process and delivery. Every aspect of the project was well-managed and completed to the highest standards."
+    },
+    {
+      "name": "Elena Moreau",
+      "image": "img/team/4.png",
+      "role": "Project Lead, Visionary Labs",
+      "text": "They brought our vision to life with precision and style. The final result was polished and professionally executed in every detail."
+    }
+  ]
+}

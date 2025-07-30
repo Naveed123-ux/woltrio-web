@@ -1,0 +1,33 @@
+{
+  "bg_image": "img/content/3.jpg",
+  "items": [
+    {
+      "num": "01",
+      "title": "Website Development",
+      "icon": "img/icons/4.svg",
+      "text": "Our expert team crafts innovative digital solutions through web development, and they develop blending sleek design with robust technology to deliver tailored, engaging, and responsive online experiences that amplify your brand.",
+      "link": "/services/web-content"
+    },
+    {
+      "num": "02",
+      "title": "Mobile App Develpoment",
+      "icon": "img/icons/mobileapp.svg",
+      "text": "We build mobile apps that feel good to use and just work. From first tap to final screen, your idea becomes a smooth, smart experience people love to have in their pocket Let’s create something your users will actually enjoy.",
+      "link": "/services/mobile-app-development"
+    },
+    {
+      "num": "03",
+      "icon": "img/icons/health.svg",
+      "text": "Build smarter, more connected healthcare experiences with our custom EMR/EHR software solutions. We create intuitive, secure, and efficient systems that simplify workflows, support better decisions, and put patient care first.",
+      "title": "EMR/EHR Software    ",
+      "link": "/services/emr-ehr-software"
+    },
+    {
+      "num": "04",
+      "title": "3D Animations",
+      "icon": "img/icons/3danimation.svg",
+      "text": "Bring your ideas to life with our immersive 3D animation services. We create visually captivating animations that engage audiences, tell compelling stories, and elevate your brand with high quality models, textures, and dynamic motion to make a lasting impact.",
+      "link": "/services/3d-animations"
+    }
+  ]
+}

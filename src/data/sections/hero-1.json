@@ -1,0 +1,53 @@
+{
+  "bg_image": "img/hero/1.jpg",
+  "subtitle": "Welcome friend!",
+  "title": {
+    "before": "Innovation Solutions For",
+    "accent": "Digital",
+    "after": "Excellence"
+  },
+  "description": "Woltrio is an agency specializing in website development, digital marketing, 3D animations, and video editing.",
+  "image": "img/hero/2.jpg",
+  "partners": [
+    {
+      "image": "RiReactjsFill",
+      "link": "#.",
+      "alt": "logo"
+    },
+    {
+      "image": "IoLogoJavascript",
+      "link": "#.",
+      "alt": "logo"
+    },
+    {
+      "image": "RiTailwindCssFill",
+      "link": "#.",
+      "alt": "logo"
+    },
+    {
+      "image": "SiPython",
+      "link": "#.",
+      "alt": "logo"
+    },
+    {
+      "image": "SiTypescript",
+      "link": "#.",
+      "alt": "logo"
+    },
+    {
+      "image": "SiPhp",
+      "link": "#.",
+      "alt": "logo"
+    },
+    {
+      "image": "SiDocker",
+      "link": "#.",
+      "alt": "logo"
+    },
+    {
+      "image": "SiAmazonaws",
+      "link": "#.",
+      "alt": "logo"
+    }
+  ]
+}
