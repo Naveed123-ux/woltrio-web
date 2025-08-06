@@ -24,6 +24,7 @@ const Home1 = (props) => {
   return (
     <Layouts transparent>
       <HeroOneSection />
+
       <AboutSection />
       {/* <TechSection /> */}
       <ServicesSection />
