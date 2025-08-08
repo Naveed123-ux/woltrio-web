@@ -1,5 +1,6 @@
 import { sliderProps } from "@/src/common/sliderProps";
 import { Swiper, SwiperSlide } from "swiper/react";
+import AnimatedSphere from "@components/AnimatedSphere";
 import Data from "@data/sections/hero-1.json";
 import { RiReactjsFill, RiTailwindCssFill } from "react-icons/ri";
 import { IoLogoJavascript } from "react-icons/io";
@@ -55,7 +56,7 @@ const HeroOne = () => {
           <div className="mil-overay" />
         </div>
 
-        <div className="container">
+        <div className="container container-1">
           <div className="row mil-p-120-0 justify-content-between">
             <div className="col-md-6 col-lg-6">
               <div className="mil-link mil-appearance mil-softened-60 mil-mb-30">
@@ -67,7 +68,7 @@ const HeroOne = () => {
                 {Data.title.after}
               </h1>
             </div>
-            <div className="col-md-12 col-lg-5 mil-relative">
+            {/* <div className="col-md-12 col-lg-5 mil-relative">
               <div className="mil-dots mil-appearance" />
 
               <p
@@ -81,6 +82,9 @@ const HeroOne = () => {
                 <i className="fas fa-chevron-down" />
                 <i className="fas fa-chevron-down" />
               </div>
+            </div> */}
+            <div className="col-md-12 col-lg-5 mil-relative">
+              <AnimatedSphere />
             </div>
             <div className="col-12">
               <div className="mil-appearance">

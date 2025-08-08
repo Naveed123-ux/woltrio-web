@@ -22,18 +22,32 @@
       {
         "label": "Services",
         "link": "/services",
-        "children": 0
+        "children": [
+          {
+            "label": "Web Development",
+            "link": "/services/web-content"
+          },
+          {
+            "label": "Mobile App Development",
+            "link": "/services/mobile-app-development"
+          },
+          {
+            "label": "EMR/EHR",
+            "link": "/services/emr-ehr-software"
+          },
+          {
+            "label": "3D Animation",
+            "link": "/services/3d-animations"
+          }
+        ]
       },
-
       {
         "label": "Team",
-        "link": "/team",
-        "children": 0
+        "link": "/team"
       },
       {
         "label": "Contact",
-        "link": "/contact",
-        "children": 0
+        "link": "/contact"
       }
     ]
   },

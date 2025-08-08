@@ -5,19 +5,11 @@ import appData from "@data/app.json";
 const DefaultHeader = ({ transparent, invert, extraClass }) => {
   const [toggle, setToggle] = useState(false);
 
-  const navItems = [];
-
-  appData.header.menu.forEach((item) => {
-    let s_class1 = "";
-
-    // Keeping dropdown logic for future use
-    if (item.children && item.children.length > 0) {
-      s_class1 = "mil-has-children";
-    }
-
-    let newobj = Object.assign({}, item, { classes: s_class1 });
-    navItems.push(newobj);
-  });
+  const navItems = appData.header.menu.map((item) => ({
+    ...item,
+    classes:
+      item.children && item.children.length > 0 ? "mil-has-children" : "",
+  }));
 
   return (
     <div
@@ -49,14 +41,26 @@ const DefaultHeader = ({ transparent, invert, extraClass }) => {
                     <Link href={item.link} className="mil-link">
                       {item.label}
                     </Link>
-                    {/* Dropdown is intentionally not rendered */}
+
+                    {/* Render dropdown only if it has children */}
+                    {item.children && item.children.length > 0 && (
+                      <ul className="mil-dropdown">
+                        {item.children.map((child, cKey) => (
+                          <li key={`child-${key}-${cKey}`}>
+                            <Link href={child.link} className="mil-link">
+                              {child.label}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
                   </li>
                 ))}
               </ul>
             </nav>
           </div>
 
-          <ul className="mil-social mil-hidden-trigger  ">
+          <ul className="mil-social mil-hidden-trigger">
             <li>
               <Link href="/jobs" className="jobs-button">
                 Join Us

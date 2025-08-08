@@ -3,7 +3,7 @@ import Layouts from "@layouts/Layouts";
 import dynamic from "next/dynamic";
 
 import { getSortedPostsData } from "@library/posts";
-
+import AnimatedSphere from "@components/AnimatedSphere";
 import HeroOneSection from "@components/sections/HeroOne";
 import AboutSection from "@components/sections/About";
 import ServicesSection from "@components/sections/Services";
@@ -30,6 +30,7 @@ const Home1 = (props) => {
       <ServicesSection />
       {/* <AboutTwoSection /> */}
       <TeamSection />
+
       {/* <VideoSection /> */}
       <TestimonialSlider />
       <Contact />

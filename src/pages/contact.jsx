@@ -48,8 +48,6 @@ const Contact = () => {
   const [capVal, setCapVal] = useState(null);
   return (
     <Layouts>
-      <PageBanner pageImage={"img/content/5.jpg"} pageTitle={"Contact"} />
-
       {/* contact */}
       <div className="container mil-content-frame mil-appearance mil-p-120-90">
         <div className="row justify-content-between mil-mb-90">

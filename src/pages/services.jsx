@@ -20,8 +20,6 @@ const Services = (props) => {
 
   return (
     <Layouts>
-      <PageBanner pageImage={"img/content/13.jpg"} pageTitle={"Services"} />
-
       {/* services */}
       <div className="container mil-content-frame mil-appearance mil-p-120-90">
         <div className="row justify-content-between">

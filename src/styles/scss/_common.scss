@@ -950,3 +950,9 @@ spaces
 .mil-p-0-60 {
   padding-bottom: 60px;
 }
+
+@media screen and (max-width: 600px) {
+  .container-1 {
+    background-color: #000000 !important;
+  }
+}
