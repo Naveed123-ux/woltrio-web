@@ -14,16 +14,7 @@ const styles = `
  
   }
  
-  .tech-sphere-container::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, #ff6b6b, transparent);
-    z-index: 5;
-  }
+  
   .component-title {
     position: absolute;
     top: 20px;
