@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import appData from "@data/app.json";
+import SplashCursor from "../../components/Cursor";
 
 const DefaultHeader = ({ transparent, invert, extraClass }) => {
   const [toggle, setToggle] = useState(false);
@@ -17,6 +18,7 @@ const DefaultHeader = ({ transparent, invert, extraClass }) => {
         !invert ? " mil-invert-nav" : ""
       } mil-animated ${extraClass ? extraClass : ""} bg-black`}
     >
+      <SplashCursor />
       <div className="container">
         <Link href="/" legacyBehavior>
           <a className="mil-logo mil-scale-down-trigger mil-accent-trigger">

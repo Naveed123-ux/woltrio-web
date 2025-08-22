@@ -20,6 +20,7 @@ import {
   SiPostgresql,
 } from "react-icons/si";
 import { FaWordpress } from "react-icons/fa";
+import Threads from "../sphereBack";
 
 const iconMap = [
   RiReactjsFill,
@@ -53,7 +54,17 @@ const HeroOne = () => {
             data-value-2="1.2"
             style={{ filter: "grayscale(100%)" }}
           />
-          <div className="mil-overay" />
+          <div className="mil-overay">
+            <div
+              style={{ width: "100%", height: "100%", position: "relative" }}
+            >
+              <Threads
+                amplitude={1}
+                distance={0}
+                enableMouseInteraction={true}
+              />
+            </div>
+          </div>
         </div>
 
         <div className="container container-1">
@@ -68,7 +79,7 @@ const HeroOne = () => {
                 {Data.title.after}
               </h1>
             </div>
-            {/* <div className="col-md-12 col-lg-5 mil-relative">
+            <div className="col-md-12 col-lg-5 mil-relative">
               <div className="mil-dots mil-appearance" />
 
               <p
@@ -82,10 +93,10 @@ const HeroOne = () => {
                 <i className="fas fa-chevron-down" />
                 <i className="fas fa-chevron-down" />
               </div>
-            </div> */}
-            <div className="col-md-12 col-lg-5 mil-relative">
-              <AnimatedSphere />
             </div>
+            {/* <div className="col-md-12 col-lg-5 mil-relative">
+              <AnimatedSphere />
+            </div> */}
             <div className="col-12">
               <div className="mil-appearance">
                 <div className="mil-just-image">

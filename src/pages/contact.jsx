@@ -21,26 +21,6 @@ const Contact = () => {
         label: "Call 24/7",
         value: "+92 51 8891888",
       },
-      {
-        icon: "img/icons/4.svg",
-        label: "HR",
-        value: "hr@woltrio.com",
-      },
-      {
-        icon: "img/icons/7.svg",
-        label: "HR",
-        value: "+92 3197776902",
-      },
-      {
-        icon: "img/icons/4.svg",
-        label: "Sales email",
-        value: "sales@woltrio.com",
-      },
-      {
-        icon: "img/icons/7.svg",
-        label: "Business Development",
-        value: "+92 3197776902",
-      },
     ],
   };
 
