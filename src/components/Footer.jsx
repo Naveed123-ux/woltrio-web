@@ -36,7 +36,7 @@ const Footer = () => {
                   style={{ paddingLeft: "40px", paddingRight: "50px" }}
                   type="text"
                   className="footer-custom-input py-md-4"
-                  placeholder="ENTER OUR EMAIL"
+                  placeholder="ENTER YOUR EMAIL"
                 />
                 <Link href="/contact" passHref>
                   <button
