@@ -824,7 +824,13 @@ function SplashCursor({
       if (colorUpdateTimer >= 1) {
         colorUpdateTimer = wrap(colorUpdateTimer, 0, 1);
         pointers.forEach((p) => {
-          p.color = generateColor();
+          // Force smoke color
+          const intensity = 0.4 + Math.random() * 0.3;
+          p.color = {
+            r: intensity,
+            g: intensity,
+            b: intensity,
+          };
         });
       }
     }
@@ -985,10 +991,13 @@ function SplashCursor({
     }
 
     function clickSplat(pointer) {
-      const color = generateColor();
-      color.r *= 10.0;
-      color.g *= 10.0;
-      color.b *= 10.0;
+      // Force smoke color for clicks too
+      const intensity = 0.6 + Math.random() * 0.4; // Brighter for clicks
+      const color = {
+        r: intensity,
+        g: intensity,
+        b: intensity,
+      };
       let dx = 10 * (Math.random() - 0.5);
       let dy = 30 * (Math.random() - 0.5);
       splat(pointer.texcoordX, pointer.texcoordY, dx, dy, color);
@@ -1032,7 +1041,8 @@ function SplashCursor({
       pointer.prevTexcoordY = pointer.texcoordY;
       pointer.deltaX = 0;
       pointer.deltaY = 0;
-      pointer.color = generateColor();
+      const intensity = 0.4 + Math.random() * 0.3;
+      pointer.color = { r: intensity, g: intensity, b: intensity };
     }
 
     function updatePointerMoveData(pointer, posX, posY, color) {
@@ -1064,13 +1074,14 @@ function SplashCursor({
     }
 
     function generateColor() {
-      let c = HSVtoRGB(Math.random(), 1.0, 1.0);
-      c.r *= 0.15;
-      c.g *= 0.15;
-      c.b *= 0.15;
-      return c;
+      // Simple gray smoke only
+      const intensity = 0.4 + Math.random() * 0.3; // Random between 0.4-0.7
+      return {
+        r: intensity,
+        g: intensity,
+        b: intensity,
+      };
     }
-
     function HSVtoRGB(h, s, v) {
       let r, g, b, i, f, p, q, t;
       i = Math.floor(h * 6);
@@ -1160,7 +1171,8 @@ function SplashCursor({
         let pointer = pointers[0];
         let posX = scaleByPixelRatio(e.clientX);
         let posY = scaleByPixelRatio(e.clientY);
-        let color = generateColor();
+        const intensity = 0.4 + Math.random() * 0.3;
+        const color = { r: intensity, g: intensity, b: intensity };
         updateFrame();
         updatePointerMoveData(pointer, posX, posY, color);
         document.body.removeEventListener("mousemove", handleFirstMouseMove);
