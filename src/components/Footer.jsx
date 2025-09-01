@@ -27,7 +27,7 @@ const Footer = () => {
                 lineHeight: "100%",
               }}
             >
-              <img width={220} src="img/LogoDark.svg" alt="Woltrio Logo" />
+              <img width={220} src="/img/LogoDark.svg" alt="Woltrio Logo" />
             </span>
             <p className="mt-4 footer-p-hover">Subscribe our newsletter:</p>
             <div className="input-group input-group-lg footer-input-group">

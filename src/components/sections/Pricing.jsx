@@ -8,9 +8,11 @@ const PricingSection = () => {
         <div className="row justify-content-between mil-mb-120">
           <div className="col-xl-5">
             <h3 className="mil-link mil-appearance mil-accent mil-mb-30">
-              {Data.subtitle}
+              Contact
             </h3>
-            <h3 className="mil-mb-30 mil-appearance">{Data.title}</h3>
+            <h3 className="mil-mb-30 mil-appearance">
+              Need a custom plan? Contact us for the best price.
+            </h3>
           </div>
           <div className="col-xl-6">
             <p className="mil-appearance mil-mt-55-adapt mil-mb-30">
@@ -24,16 +26,16 @@ const PricingSection = () => {
             </div>
           </div>
         </div>
-        <div className="row">
+        {/* <div className="row">
           {Data.items.map((item, key) => (
             <div className="col-lg-4" key={`pricing-item-${key}`}>
-              {/* price card */}
+              
               <div className="mil-price-card mil-appearance mil-mb-30">
                 <h5 className="mil-mb-15">{item.name}</h5>
                 <p className="mil-h6 mil-bold mil-mb-30">{item.subname}</p>
 
                 <div className="mil-price-number mil-mb-10">{item.price}</div>
-                {/* <p className="mil-h6 mil-bold mil-mb-30">{item.price_label}</p> */}
+              
 
                 <div className="mil-divider mil-mb-30"></div>
 
@@ -68,10 +70,10 @@ const PricingSection = () => {
                   <span>{item.button.label}</span>
                 </Link>
               </div>
-              {/* price card end */}
+             
             </div>
           ))}
-        </div>
+        </div> */}
       </div>
     </div>
   );
