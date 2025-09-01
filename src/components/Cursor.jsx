@@ -5,7 +5,7 @@ function SplashCursor({
   SIM_RESOLUTION = 128,
   DYE_RESOLUTION = 1440,
   CAPTURE_RESOLUTION = 512,
-  DENSITY_DISSIPATION = 3.5,
+  DENSITY_DISSIPATION = 4.5,
   VELOCITY_DISSIPATION = 2,
   PRESSURE = 0.1,
   PRESSURE_ITERATIONS = 20,
@@ -825,7 +825,7 @@ function SplashCursor({
         colorUpdateTimer = wrap(colorUpdateTimer, 0, 1);
         pointers.forEach((p) => {
           // Force smoke color
-          const intensity = 0.4 + Math.random() * 0.3;
+          const intensity = 0.02 + Math.random() * 0.03;
           p.color = {
             r: intensity,
             g: intensity,
@@ -992,7 +992,7 @@ function SplashCursor({
 
     function clickSplat(pointer) {
       // Force smoke color for clicks too
-      const intensity = 0.6 + Math.random() * 0.4; // Brighter for clicks
+      const intensity = 0.15 + Math.random() * 0.1; // Brighter for clicks
       const color = {
         r: intensity,
         g: intensity,
@@ -1041,7 +1041,7 @@ function SplashCursor({
       pointer.prevTexcoordY = pointer.texcoordY;
       pointer.deltaX = 0;
       pointer.deltaY = 0;
-      const intensity = 0.4 + Math.random() * 0.3;
+      const intensity = 0.02 + Math.random() * 0.03;
       pointer.color = { r: intensity, g: intensity, b: intensity };
     }
 
@@ -1075,7 +1075,7 @@ function SplashCursor({
 
     function generateColor() {
       // Simple gray smoke only
-      const intensity = 0.4 + Math.random() * 0.3; // Random between 0.4-0.7
+      const intensity = 0.08 + Math.random() * 0.07; // Random between 0.4-0.7
       return {
         r: intensity,
         g: intensity,
@@ -1171,7 +1171,7 @@ function SplashCursor({
         let pointer = pointers[0];
         let posX = scaleByPixelRatio(e.clientX);
         let posY = scaleByPixelRatio(e.clientY);
-        const intensity = 0.4 + Math.random() * 0.3;
+        const intensity = 0.05 + Math.random() * 0.05;
         const color = { r: intensity, g: intensity, b: intensity };
         updateFrame();
         updatePointerMoveData(pointer, posX, posY, color);
