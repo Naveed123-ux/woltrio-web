@@ -21,6 +21,16 @@ const Contact = () => {
         label: "Call 24/7",
         value: "+92 51 8891888",
       },
+      {
+        icon: "img/icons/7.svg",
+        label: "WeChat",
+        value: "info@woltrio.com",
+      },
+      {
+        icon: "img/icons/7.svg",
+        label: "WeChat",
+        value: "+92 51 8891888",
+      },
     ],
   };
 

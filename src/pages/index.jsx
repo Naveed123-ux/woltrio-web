@@ -15,6 +15,8 @@ import LatestPostsSection from "@components/sections/LatestPosts";
 import AboutTwoSection from "@components/sections/AboutTwo";
 import TechSection from "@components/sections/Tech";
 
+import { LanguageSwitcher } from "../components/LanguageSwitcher";
+
 const TestimonialSlider = dynamic(
   () => import("@components/sliders/Testimonial"),
   { ssr: true }
@@ -30,8 +32,8 @@ const Home1 = (props) => {
       <ServicesSection />
       {/* <AboutTwoSection /> */}
       <TeamSection />
-
-      {/* <VideoSection /> */}
+      <LanguageSwitcher />
+      {/* <V ideoSection /> */}
       <TestimonialSlider />
       <Contact />
       {/* <LatestPostsSection posts={props.posts} /> */}

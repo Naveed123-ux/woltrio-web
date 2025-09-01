@@ -15,9 +15,16 @@ function MyApp({ Component, pageProps }) {
         {/* seo begin */}
         <title>Woltrio</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="icon" href="img/hero/logo.png" />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="512x512"
+          href="/img/hero/favicon.png"
+        />
         {/* seo end */}
       </Head>
+      <div id="google_translate_element"></div>
+
       <Component {...pageProps} />
     </>
   );

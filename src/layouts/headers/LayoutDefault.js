@@ -2,6 +2,7 @@ import Link from "next/link";
 import { useState } from "react";
 import appData from "@data/app.json";
 import SplashCursor from "../../components/Cursor";
+import { LanguageSwitcher } from "@/src/components/LanguageSwitcher";
 
 const DefaultHeader = ({ transparent, invert, extraClass }) => {
   const [toggle, setToggle] = useState(false);
@@ -63,6 +64,9 @@ const DefaultHeader = ({ transparent, invert, extraClass }) => {
           </div>
 
           <ul className="mil-social mil-hidden-trigger">
+            <li>
+              <LanguageSwitcher />
+            </li>
             <li>
               <Link href="/jobs" className="jobs-button">
                 Join Us

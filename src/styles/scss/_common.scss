@@ -970,3 +970,49 @@ spaces
 //   position: relative;
 //   z-index: 3;
 // }
+.skiptranslate {
+  display: none !important;
+}
+
+body {
+  top: 0px !important;
+}
+// .notselected {
+//   background: white;
+//   border: 0;
+
+//   color: black;
+//   padding: 13px 13px;
+//   margin-top: 1.5px;
+//   font-size: 12px;
+//   font-weight: 500;
+//   letter-spacing: 0.8px;
+
+//   border-radius: 5px;
+//   text-transform: uppercase;
+//   text-decoration: none;
+// }
+// .selected {
+//   background: #ff9800;
+//   border: 0;
+
+//   color: black;
+//   padding: 15px 15px;
+//   font-size: 12px;
+//   font-weight: 500;
+//   letter-spacing: 0.8px;
+
+//   border-radius: 5px;
+//   text-transform: uppercase;
+//   text-decoration: none;
+// }
+.selected {
+  background: transparent;
+  border: 0;
+  color: #ff9800;
+}
+.notselected {
+  background: transparent;
+  border: 0;
+  color: white;
+}
