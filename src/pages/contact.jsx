@@ -22,14 +22,14 @@ const Contact = () => {
         value: "+92 51 8891888",
       },
       {
-        icon: "img/icons/7.svg",
+        icon: "img/icons/wechat.svg",
         label: "WeChat",
-        value: "info@woltrio.com",
+        value: "ehti_sham",
       },
       {
-        icon: "img/icons/7.svg",
-        label: "WeChat",
-        value: "+92 51 8891888",
+        icon: "img/icons/4.svg",
+        label: "HR",
+        value: "hr@woltrio.com",
       },
     ],
   };
