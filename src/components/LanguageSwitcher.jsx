@@ -10,24 +10,29 @@ const LanguageSwitcher = () => {
   useEffect(() => {
     const cookies = parseCookies();
     const existingLanguageCookieValue = cookies[COOKIE_NAME];
+    let languageValue = "en"; // default to English
 
-    let languageValue;
     if (existingLanguageCookieValue) {
       const sp = existingLanguageCookieValue.split("/");
+      // Check if the expected format exists and get the language code
       if (sp.length > 2) {
         languageValue = sp[2];
+      } else {
+        // Handle cases where the cookie is just the language code
+        languageValue = existingLanguageCookieValue;
       }
     }
-
-    if (!languageValue) {
-      languageValue = "en"; // default to English
-    }
-
     setCurrentLanguage(languageValue);
   }, []);
 
   const switchLanguage = (lang) => () => {
-    setCookie(null, COOKIE_NAME, "/auto/" + lang);
+    // Set the cookie with the correct value
+    setCookie(null, COOKIE_NAME, `/auto/${lang}`, { path: "/" });
+
+    // Update the state immediately
+    setCurrentLanguage(lang);
+
+    // Reload the page to apply the translation
     window.location.reload();
   };
 
@@ -39,7 +44,6 @@ const LanguageSwitcher = () => {
           type="button"
           className={currentLanguage === "en" ? "selected" : "notselected"}
           onClick={switchLanguage("en")}
-          disabled={currentLanguage === "en"}
         >
           En
         </button>
@@ -51,7 +55,6 @@ const LanguageSwitcher = () => {
             currentLanguage === "zh-CN" ? "selected ms-2" : "notselected ms-2"
           }
           onClick={switchLanguage("zh-CN")}
-          disabled={currentLanguage === "zh-CN"}
         >
           中文
         </button>
