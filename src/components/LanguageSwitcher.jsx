@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import { parseCookies, setCookie } from "nookies";
+import { parseCookies, setCookie, destroyCookie } from "nookies";
 
 const COOKIE_NAME = "googtrans";
 
@@ -11,18 +11,23 @@ const LanguageSwitcher = () => {
     const cookies = parseCookies();
     const existingLanguageCookieValue = cookies[COOKIE_NAME];
 
-    // Check if the cookie exists and set the language
     if (existingLanguageCookieValue) {
       const sp = existingLanguageCookieValue.split("/");
       if (sp.length > 2) {
         setCurrentLanguage(sp[2]);
       }
     }
-  }, []); // Run only once on component mount
+  }, []);
 
   const switchLanguage = (lang) => () => {
-    // Set the cookie with the correct value
-    setCookie(null, COOKIE_NAME, `/auto/${lang}`, { path: "/" });
+    // Destroy the old cookie to prevent caching issues
+    destroyCookie(null, COOKIE_NAME, { path: "/" });
+
+    // Clear any Google Translate local storage to reset its state
+    window.localStorage.removeItem("google.translate.element");
+
+    // Set the new cookie with a secure flag for production
+    setCookie(null, COOKIE_NAME, `/auto/${lang}`, { path: "/", secure: true });
 
     // Update the state immediately
     setCurrentLanguage(lang);
@@ -34,7 +39,6 @@ const LanguageSwitcher = () => {
   return (
     <div className="text-center notranslate my-3">
       <div className="btn-group" role="group" aria-label="Language Switcher">
-        {/* English Button */}
         <button
           type="button"
           className={currentLanguage === "en" ? "selected" : "notselected"}
@@ -43,7 +47,6 @@ const LanguageSwitcher = () => {
           En
         </button>
 
-        {/* Chinese Button */}
         <button
           type="button"
           className={
