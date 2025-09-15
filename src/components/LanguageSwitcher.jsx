@@ -1,5 +1,7 @@
 "use client";
 
+import { useState, useEffect } from "react";
+
 const COOKIE_NAME = "googtrans";
 
 /**
@@ -7,22 +9,16 @@ const COOKIE_NAME = "googtrans";
  * @returns {string} The current language code.
  */
 const getCurrentLanguageFromCookie = () => {
-  try {
-    const cookieString = document.cookie;
-    if (typeof cookieString !== "string") return "en";
+  const cookieString = document.cookie;
+  if (typeof cookieString !== "string") return "en";
 
-    const cookies = cookieString.split("; ");
-    for (const cookie of cookies) {
-      const [key, value] = cookie.split("=");
-      if (key === COOKIE_NAME) {
-        // value is like '/auto/zh-CN', so we get the last part
-        const lang = value.split("/").pop();
-        return lang || "en";
-      }
+  const cookies = cookieString.split("; ");
+  for (const cookie of cookies) {
+    const [key, value] = cookie.split("=");
+    if (key === COOKIE_NAME) {
+      const lang = value.split("/").pop();
+      return lang || "en";
     }
-  } catch (e) {
-    // In server-side rendering environments, `document` is not available.
-    // This is a graceful fallback.
   }
   return "en";
 };
@@ -54,8 +50,18 @@ const setCookie = (name, value, maxAgeInSeconds) => {
 };
 
 const LanguageSwitcher = () => {
-  // Read language from the cookie on initial render
-  const currentLanguage = getCurrentLanguageFromCookie();
+  // 1. Use useState to manage the current language state.
+  const [currentLanguage, setCurrentLanguage] = useState("en");
+
+  // 2. Use useEffect to read the cookie only on the client side after mounting.
+  useEffect(() => {
+    try {
+      const lang = getCurrentLanguageFromCookie();
+      setCurrentLanguage(lang);
+    } catch (e) {
+      // Graceful fallback for environments where 'document' is not available.
+    }
+  }, []); // The empty dependency array ensures this runs only once on mount.
 
   /**
    * Clears any existing 'googtrans' cookie and sets a new one.
@@ -97,6 +103,9 @@ const LanguageSwitcher = () => {
       </div>
 
       {/* Optional: Debug info */}
+      <div className="mt-2 text-sm text-gray-500">
+        Current: {currentLanguage}
+      </div>
     </div>
   );
 };
