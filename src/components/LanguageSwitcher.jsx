@@ -1,151 +1,87 @@
 "use client";
-import { useEffect, useState } from "react";
-import { parseCookies, setCookie, destroyCookie } from "nookies";
+import { getCookie, setCookie, deleteCookie } from "cookies-next/client";
 
 const COOKIE_NAME = "googtrans";
 
+/**
+ * Reads the 'googtrans' cookie using cookies-next and returns the language code.
+ * Defaults to 'en' if the cookie is not set.
+ * @returns {string} The current language code.
+ */
+const getCurrentLanguageFromCookie = () => {
+  const langCookie = getCookie(COOKIE_NAME);
+
+  if (typeof langCookie === "string") {
+    // Cookie value is '/auto/zh-CN', so we get the last part
+    const lang = langCookie.split("/").pop();
+    return lang || "en";
+  }
+
+  return "en";
+};
+
 const LanguageSwitcher = () => {
-  const [currentLanguage, setCurrentLanguage] = useState("en");
+  // Read language from the cookie. Note: cookies-next docs recommend
+  // calling this inside useEffect or an event handler. In this component's
+  // case, since a page reload happens on every change, reading it here
+  // on initial render is safe and reflects the correct state post-reload.
+  const currentLanguage = getCurrentLanguageFromCookie();
 
-  useEffect(() => {
-    const cookies = parseCookies();
-    const existingLanguageCookieValue = cookies[COOKIE_NAME];
+  /**
+   * Clears any existing 'googtrans' cookie and sets a new one.
+   * @param {string} lang - The language code to switch to.
+   */
+  const handleLanguageChange = (lang) => {
+    const hostname = window.location.hostname;
+    const parts = hostname.split(".");
 
-    if (existingLanguageCookieValue) {
-      const sp = existingLanguageCookieValue.split("/");
-      if (sp.length > 2) {
-        setCurrentLanguage(sp[2]);
-      }
-    } else {
-      // If no cookie exists, check if we're in a translated state
-      const isTranslated =
-        document.documentElement.classList.contains("translated-ltr") ||
-        document.documentElement.classList.contains("translated-rtl");
-      if (!isTranslated) {
-        setCurrentLanguage("en");
-      }
+    // --- Definitive Fix: Robustly delete cookie across all parent domains ---
+    // This loop ensures that any 'googtrans' cookie is deleted, regardless
+    // of the subdomain it was set on (e.g., 'www.example.com' vs '.example.com').
+    while (parts.length > 1) {
+      const currentDomain = parts.join(".");
+      deleteCookie(COOKIE_NAME, { path: "/", domain: currentDomain });
+      deleteCookie(COOKIE_NAME, { path: "/", domain: `.${currentDomain}` });
+      parts.shift();
     }
-  }, []);
+    // Finally, delete the cookie with no domain specified (browser default)
+    deleteCookie(COOKIE_NAME, { path: "/" });
+    // --- End of deletion logic ---
 
-  const switchLanguage = (lang) => () => {
-    console.log(`Switching to language: ${lang}`);
-
-    // Clear all Google Translate related storage
-    try {
-      // Clear localStorage
-      Object.keys(window.localStorage).forEach((key) => {
-        if (key.includes("google") || key.includes("translate")) {
-          window.localStorage.removeItem(key);
-        }
-      });
-
-      // Clear sessionStorage
-      Object.keys(window.sessionStorage).forEach((key) => {
-        if (key.includes("google") || key.includes("translate")) {
-          window.sessionStorage.removeItem(key);
-        }
-      });
-    } catch (e) {
-      console.warn("Could not clear storage:", e);
-    }
-
-    // Destroy the old cookie completely
-    destroyCookie(null, COOKIE_NAME, { path: "/" });
-    destroyCookie(null, COOKIE_NAME, {
+    // Set the new, authoritative cookie
+    setCookie(COOKIE_NAME, `/auto/${lang}`, {
       path: "/",
-      domain: window.location.hostname,
-    });
-    destroyCookie(null, COOKIE_NAME, {
-      path: "/",
-      domain: `.${window.location.hostname}`,
-    });
-
-    // Set the appropriate cookie value based on language
-    let cookieValue;
-    if (lang === "en") {
-      // For English, we want to disable translation
-      cookieValue = "/auto/en";
-      // Alternative: you might want to not set any cookie for English
-      // destroyCookie(null, COOKIE_NAME, { path: "/" });
-    } else {
-      cookieValue = `/auto/${lang}`;
-    }
-
-    // Set the new cookie
-    setCookie(null, COOKIE_NAME, cookieValue, {
-      path: "/",
-      secure: process.env.NODE_ENV === "production",
       maxAge: 30 * 24 * 60 * 60, // 30 days
     });
 
-    // Update the state
-    setCurrentLanguage(lang);
-
-    // Force reload with cache bypass
-    window.location.href = window.location.href;
-  };
-
-  const resetToEnglish = () => {
-    console.log("Resetting to English");
-
-    // Completely remove the cookie
-    destroyCookie(null, COOKIE_NAME, { path: "/" });
-    destroyCookie(null, COOKIE_NAME, {
-      path: "/",
-      domain: window.location.hostname,
-    });
-    destroyCookie(null, COOKIE_NAME, {
-      path: "/",
-      domain: `.${window.location.hostname}`,
-    });
-
-    // Clear all translation-related storage
-    try {
-      Object.keys(window.localStorage).forEach((key) => {
-        if (key.includes("google") || key.includes("translate")) {
-          window.localStorage.removeItem(key);
-        }
-      });
-    } catch (e) {
-      console.warn("Could not clear storage:", e);
-    }
-
-    // Remove any translation classes from the document
-    document.documentElement.classList.remove(
-      "translated-ltr",
-      "translated-rtl"
-    );
-
-    setCurrentLanguage("en");
-
-    // Reload the page
-    window.location.href = window.location.href;
+    window.location.reload();
   };
 
   return (
     <div className="text-center notranslate my-3">
       <div className="btn-group" role="group" aria-label="Language Switcher">
+        {/* English Button */}
         <button
           type="button"
           className={currentLanguage === "en" ? "selected" : "notselected"}
-          onClick={
-            currentLanguage === "en" ? resetToEnglish : switchLanguage("en")
-          }
+          onClick={() => handleLanguageChange("en")}
         >
           En
         </button>
+
+        {/* Chinese Button */}
         <button
           type="button"
           className={
             currentLanguage === "zh-CN" ? "selected ms-2" : "notselected ms-2"
           }
-          onClick={switchLanguage("zh-CN")}
+          onClick={() => handleLanguageChange("zh-CN")}
         >
           中文
         </button>
       </div>
 
-      {/* Debug info - remove in production */}
+      {/* Optional: Debug info */}
       <div className="mt-2 text-sm text-gray-500">
         Current: {currentLanguage}
       </div>
