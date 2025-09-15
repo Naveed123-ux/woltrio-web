@@ -1,30 +1,60 @@
 "use client";
-import { getCookie, setCookie, deleteCookie } from "cookies-next/client";
 
 const COOKIE_NAME = "googtrans";
 
 /**
- * Reads the 'googtrans' cookie using cookies-next and returns the language code.
- * Defaults to 'en' if the cookie is not set.
+ * Reads the 'googtrans' cookie manually.
  * @returns {string} The current language code.
  */
 const getCurrentLanguageFromCookie = () => {
-  const langCookie = getCookie(COOKIE_NAME);
+  try {
+    const cookieString = document.cookie;
+    if (typeof cookieString !== "string") return "en";
 
-  if (typeof langCookie === "string") {
-    // Cookie value is '/auto/zh-CN', so we get th last part
-    const lang = langCookie.split("/").pop();
-    return lang || "en";
+    const cookies = cookieString.split("; ");
+    for (const cookie of cookies) {
+      const [key, value] = cookie.split("=");
+      if (key === COOKIE_NAME) {
+        // value is like '/auto/zh-CN', so we get the last part
+        const lang = value.split("/").pop();
+        return lang || "en";
+      }
+    }
+  } catch (e) {
+    // In server-side rendering environments, `document` is not available.
+    // This is a graceful fallback.
   }
-
   return "en";
 };
 
+/**
+ * Manually deletes a cookie by setting its expiration to the past.
+ * The domain logic is crucial for robustness.
+ */
+const deleteCookie = (name) => {
+  const hostname = window.location.hostname;
+  const parts = hostname.split(".");
+  // Attempt to delete the cookie on all possible subdomains
+  while (parts.length > 1) {
+    const currentDomain = parts.join(".");
+    document.cookie = `${name}=; Path=/; Domain=${currentDomain}; Expires=Thu, 01 Jan 1970 00:00:00 GMT;`;
+    document.cookie = `${name}=; Path=/; Domain=.${currentDomain}; Expires=Thu, 01 Jan 1970 00:00:00 GMT;`;
+    parts.shift();
+  }
+  // Also delete without a specified domain
+  document.cookie = `${name}=; Path=/; Expires=Thu, 01 Jan 1970 00:00:00 GMT;`;
+};
+
+/**
+ * Manually sets a cookie with a max-age.
+ */
+const setCookie = (name, value, maxAgeInSeconds) => {
+  const expiration = `max-age=${maxAgeInSeconds}`;
+  document.cookie = `${name}=${value}; Path=/; ${expiration};`;
+};
+
 const LanguageSwitcher = () => {
-  // Read language from the cookie. Note: cookies-next docs recommend
-  // calling this inside useEffect or an event handler. In this component's
-  // case, since a page reload happens on every change, reading it here
-  // on initial render is safe and reflects the correct state post-reload.
+  // Read language from the cookie on initial render
   const currentLanguage = getCurrentLanguageFromCookie();
 
   /**
@@ -32,28 +62,13 @@ const LanguageSwitcher = () => {
    * @param {string} lang - The language code to switch to.
    */
   const handleLanguageChange = (lang) => {
-    const hostname = window.location.hostname;
-    const parts = hostname.split(".");
+    // 1. Delete all versions of the old cookie
+    deleteCookie(COOKIE_NAME);
 
-    // --- Definitive Fix: Robustly delete cookie across all parent domains ---
-    // This loop ensures that any 'googtrans' cookie is deleted, regardless
-    // of the subdomain it was set on (e.g., 'www.example.com' vs '.example.com').
-    while (parts.length > 1) {
-      const currentDomain = parts.join(".");
-      deleteCookie(COOKIE_NAME, { path: "/", domain: currentDomain });
-      deleteCookie(COOKIE_NAME, { path: "/", domain: `.${currentDomain}` });
-      parts.shift();
-    }
-    // Finally, delete the cookie with no domain specified (browser default)
-    deleteCookie(COOKIE_NAME, { path: "/" });
-    // --- End of deletion logic ---
+    // 2. Set the new cookie
+    setCookie(COOKIE_NAME, `/auto/${lang}`, 30 * 24 * 60 * 60); // 30 days
 
-    // Set the new, authoritative cookie
-    setCookie(COOKIE_NAME, `/auto/${lang}`, {
-      path: "/",
-      maxAge: 30 * 24 * 60 * 60, // 30 days
-    });
-
+    // 3. Reload the page to apply the new translation
     window.location.reload();
   };
 
