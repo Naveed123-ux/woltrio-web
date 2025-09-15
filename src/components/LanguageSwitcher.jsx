@@ -12,7 +12,7 @@ const getCurrentLanguageFromCookie = () => {
   const langCookie = getCookie(COOKIE_NAME);
 
   if (typeof langCookie === "string") {
-    // Cookie value is '/auto/zh-CN', so we get the last part
+    // Cookie value is '/auto/zh-CN', so we get th last part
     const lang = langCookie.split("/").pop();
     return lang || "en";
   }
