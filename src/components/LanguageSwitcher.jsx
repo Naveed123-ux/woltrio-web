@@ -10,20 +10,15 @@ const LanguageSwitcher = () => {
   useEffect(() => {
     const cookies = parseCookies();
     const existingLanguageCookieValue = cookies[COOKIE_NAME];
-    let languageValue = "en"; // default to English
 
+    // Check if the cookie exists and set the language
     if (existingLanguageCookieValue) {
       const sp = existingLanguageCookieValue.split("/");
-      // Check if the expected format exists and get the language code
       if (sp.length > 2) {
-        languageValue = sp[2];
-      } else {
-        // Handle cases where the cookie is just the language code
-        languageValue = existingLanguageCookieValue;
+        setCurrentLanguage(sp[2]);
       }
     }
-    setCurrentLanguage(languageValue);
-  }, []);
+  }, []); // Run only once on component mount
 
   const switchLanguage = (lang) => () => {
     // Set the cookie with the correct value
