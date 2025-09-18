@@ -32,12 +32,20 @@
             "link": "/services/mobile-app-development"
           },
           {
-            "label": "EMR/EHR",
+            "label": "HealthTech",
             "link": "/services/emr-ehr-software"
           },
           {
-            "label": "3D Animation",
+            "label": "3D Animations",
             "link": "/services/3d-animations"
+          },
+          {
+            "label": "Cyber Security",
+            "link": "/services/cyber-security"
+          },
+          {
+            "label": "Api Security",
+            "link": "/services/api-security"
           }
         ]
       },

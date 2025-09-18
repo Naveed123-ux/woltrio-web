@@ -1,5 +1,6 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
 import Script from "next/script";
+import { Analytics } from "@vercel/analytics/next";
 
 class MyDocument extends Document {
   render() {
@@ -30,6 +31,7 @@ class MyDocument extends Document {
             src="//translate.google.com/translate_a/element.js?cb=TranslateInit"
             strategy="afterInteractive"
           />
+          <Analytics />
         </body>
       </Html>
     );

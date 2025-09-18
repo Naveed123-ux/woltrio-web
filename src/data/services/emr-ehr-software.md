@@ -1,7 +1,7 @@
 ---
 #preview details
 image: "img/icons/health.svg"
-title: "EMR/EHR Solutions"
+title: "HealthTech"
 short: "Secure, efficient healthcare platforms"
 
 #full details
