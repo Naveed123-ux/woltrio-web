@@ -18,7 +18,7 @@ const Team = () => {
       {
         image: "img/team/2.jpg",
         name: "Ehtisham Ilyas",
-        role: "Director Of Woltrio ",
+        role: "CEO Of Woltrio ",
       },
     ],
 
@@ -42,7 +42,7 @@ const Team = () => {
       {
         image: "img/team/Huzaifa.png",
         name: "Muhammad Huzaifa",
-        role: "MERN/NEXT.js/Flask Developer",
+        role: "FullStack/NEXT.js/Flask Developer",
       },
     ],
     app: [
@@ -51,28 +51,25 @@ const Team = () => {
         name: "Waqas Hussain",
         role: "Mobile Application Developer",
       },
+      {
+        image: "img/team/hassan.jpg",
+        name: "Hassan Sohail",
+        role: "Mobile Application Developer",
+      },
     ],
     animators: [
       {
-        image: "img/team/raja.jpg",
-        name: "Raja Haris",
-        role: "Video editor",
+        image: "img/team/Waqas2.jpg",
+        name: "Waqas Ahmad",
+        role: "3d & 2D Animator,Video editor",
       },
+    ],
+    business: [
       {
-        image: "img/team/raja2.jpg",
-        name: "Raja Arwan",
-        role: "Freelance Video Editor",
-      },
-      {
-        image: "img/team/adel.jpg",
-        name: "Muhammad Adeel",
-        role: "3d & 2D Animator",
-      },
-
-      {
-        image: "img/team/asjal.jpg",
-        name: "Ajsal Faisal",
-        role: "Mobile Application Developer",
+        image:
+          "https://static.vecteezy.com/system/resources/previews/019/849/021/non_2x/beautiful-muslim-woman-wearing-hijab-vector.jpg",
+        name: "Areeba Khan",
+        role: "Business Development Executive",
       },
     ],
   };
@@ -216,6 +213,42 @@ const Team = () => {
             3D & 2D Animators
           </h3>
           {Content.animators.map((item, key) => (
+            <div
+              className="col-xl-3 col-lg-4 col-md-6"
+              key={`team-item-${key}`}
+            >
+              {/* team card */}
+              <div className="mil-card-1 mil-scale-down-trigger mil-accent-trigger mil-appearance mil-mb-30">
+                <div className="mil-cover mil-long">
+                  <div className="mil-image-frame">
+                    {/* portrait */}
+                    <img
+                      src={item.image}
+                      alt={item.name}
+                      style={{ objectPosition: "top" }}
+                    />
+                  </div>
+                </div>
+                <div className="mil-overlay mil-with-bg mil-text-center">
+                  <div className="mil-description">
+                    {/* name */}
+                    <h5>{item.name}</h5>
+                    {/* post */}
+                    <span className="mil-link mil-softened-50">
+                      {item.role}
+                    </span>
+                  </div>
+                </div>
+              </div>
+              {/* team card end */}
+            </div>
+          ))}
+        </div>
+        <div className="row justify-content-center mt-5">
+          <h3 className="mil-appearance mil-mb-30 justify-content-center d-flex">
+            Bussiness Development
+          </h3>
+          {Content.business.map((item, key) => (
             <div
               className="col-xl-3 col-lg-4 col-md-6"
               key={`team-item-${key}`}
