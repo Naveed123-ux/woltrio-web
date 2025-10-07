@@ -11,8 +11,16 @@ import { getAllServicesIds, getServiceData } from "@library/services";
 
 import CallToActionSection from "@components/sections/CallToAction";
 import PricingSection from "@components/sections/Pricing";
+import HealthSection from "@components/EmrSection"
+const ServiceDetail = ({ postData, isSpecial }) => {
+  if (isSpecial) {
+    return <Layouts className="!h-full !w-full !p-0 !m-0 bg-black">
+      <div className="!h-full !w-full !p-0 !m-0 bg-black ">
 
-const ServiceDetail = ({ postData }) => {
+        <HealthSection />
+      </div>
+    </Layouts>
+  }
   const Content = {
     title: "Our top-quality services",
     subtitle: "Services 1",
@@ -92,7 +100,14 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const postData = await getServiceData(params.id);
-
+  if (params.id == 'emr-ehr-software') {
+    return {
+      props: {
+        postData,
+        isSpecial: true,
+      },
+    };
+  }
   return {
     props: {
       postData,

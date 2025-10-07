@@ -23,7 +23,7 @@ function MyApp({ Component, pageProps }) {
         />
         {/* seo end */}
       </Head>
-      <div id="google_translate_element"></div>
+      <div id="google_translate_element" className="bg-black"></div>
 
       <Component {...pageProps} />
     </>

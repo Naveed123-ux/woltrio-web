@@ -6,7 +6,7 @@ short: "Secure, efficient healthcare platforms"
 
 #full details
 fullImage: "/img/content/13.jpg"
-description: "At Woltrio, we build advanced EMR/EHR systems designed to streamline clinical workflows, improve patient care, and meet regulatory compliance. From small clinics to enterprise healthcare systems, we deliver scalable and secure digital healthcare solutions tailored to your unique needs."
+description: "At Woltrio, we build advanced EMR/EHR systems designed to streamline clinical workflows, improve patient care, and meet regulatory compliance. From small clinics to enterprise system systems, we deliver scalable and secure digital healthcare solutions tailored to your unique needs."
 
 list: 
     - label: "Custom EMR/EHR Development"
