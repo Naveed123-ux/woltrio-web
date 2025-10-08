@@ -8,21 +8,21 @@ import { cn } from '@/lib/utils'
 // --- Data for the cards ---
 const cardData = [
     {
-        image: '/img/health/health-1.webp',
+        image: '/img/health/dashboard.png',
         title: 'Rated best independent practice solution',
         description:
             'Customers rated Woltrio the best overall solution for independent physician practices for the second straight year.',
         linkText: 'See why they love Woltrio',
     },
     {
-        image: '/img/health/health-1.webp',
+        image: '/img/health/dashboard.png',
         title: 'Users see 2–6% increase in collections',
         description:
             'Practices that switch to Woltrio often see up to a 6% increase in collections and a similar decrease in overhead costs.',
         linkText: 'Learn more',
     },
     {
-        image: '/img/health/laptop.webp',
+        image: '/img/health/slider (1).png',
         title: 'Built for specialty needs',
         description:
             'Woltrio works the way clinicians think with specialty-specific workflows and more complete patient charts.',

@@ -92,12 +92,13 @@ const imageVariants = {
     },
 };
 const IMAGES_ROW_A = [
-    "https://images.unsplash.com/photo-1749738456487-2af715ab65ea?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "https://plus.unsplash.com/premium_photo-1720139288219-e20aa9c8895b?q=80&w=1810&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "/img/health/slider (1).png",
+    "/img/health/slider (2).png",
+
 ]
 const IMAGES_ROW_B = [
-    "https://images.unsplash.com/photo-1749738456487-2af715ab65ea?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "https://plus.unsplash.com/premium_photo-1720139288219-e20aa9c8895b?q=80&w=1810&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "/img/health/slider (3).png",
+    "/img/health/slider (4).png",
 ]
 
 function HealthSectionSticky() {
@@ -161,7 +162,7 @@ function HealthSectionSticky() {
                         viewport={{ once: true, amount: 0.3 }}
                     >
                         <motion.img
-                            src={"/img/health/health-1.webp"} // Restored your original image path
+                            src={"/img/health/dashboard.png"} // Restored your original image path
                             alt="Woltrio EMR Interface"
                             className="!rounded-lg !shadow-2xl !shadow-[#fd7e14]/20 !max-h-[80%] !w-auto"
                             whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
@@ -176,7 +177,7 @@ function HealthSectionSticky() {
                             {IMAGES_ROW_A.map((src, idx) => (
                                 <img
                                     key={idx}
-                                    src={`${src}&ixlib=rb-4.0.3`}
+                                    src={`${src}`}
                                     alt="Unsplash sample"
                                     width={240}
                                     height={160}
@@ -190,7 +191,7 @@ function HealthSectionSticky() {
                             {IMAGES_ROW_B.map((src, idx) => (
                                 <img
                                     key={idx}
-                                    src={`${src}&ixlib=rb-4.0.3`}
+                                    src={`${src}`}
                                     alt="Unsplash sample"
                                     width={240}
                                     height={160}
