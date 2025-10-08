@@ -175,7 +175,7 @@ function GlobeDemo() {
                 <img
                     ref={dashboardImageRef}
                     className="absolute top-[3.5%] left-[14%] w-[73%] h-[83%] object-cover object-top rounded-sm" // Dashboard is absolute
-                        src={"/img/health/dashboard.png"} Make sure you have this image in your public folder
+                        src={"/img/health/dashboard.png"} 
                     alt="dashboard display"
                 />
             </div>
